@@ -101,10 +101,7 @@ app.post("/work", function(req, req){
 
     res.redirect("/work");
 });
-const port = 8080;
-app.listen(port, function(){
-    console.log("Server started on port ",port);
-});
+
 
 
 
@@ -119,6 +116,24 @@ app.post("/delete", function(req, res){
         res.redirect("/");
     })
 });
+
+
+
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
+app.listen(port, function(){
+    console.log("Server started successfully");
+});
+
+
+
+
+
+
 
 
 
