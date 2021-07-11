@@ -1,0 +1,31 @@
+<%- include("header"); -%>
+        <div class="box" id="heading">
+            <h1> <%= listTitle %> </h1>
+        </div>
+
+        <div class="box">
+            <% for(var i=0; i<newListItem.length; i++){ %>
+                <% if(listTitle===newListItem[i].date){ %>
+                    <form action="/delete" method="POST">
+                        <div class="item">
+                            <!-- whenever the checkbox would be clicked by the user, it will submit the form beacuse 
+                            of onChange="this.form.submit". for each item which the user wants to delete,
+                            value (which contains _id of that item) would be assigned to each name(itemWantTODelete)
+                            and we can use this name(itemWantToDelete) for deleting the item in app.js-->
+
+                            <input name="itemWantToDelete" value="<%= newListItem[i]._id %>" onChange="this.form.submit()" type="checkbox"> 
+                            <p> <%= newListItem[i].name %> </p>
+                        </div>
+                    </form>                    
+            <% } } %>
+
+
+            <form class="item" action="/" method="POST">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="button" value="<%= listTitle %>">+</button>
+            </form>
+
+
+        </div>
+                
+<%- include("footer"); -%>
