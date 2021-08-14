@@ -5,7 +5,7 @@
 
         <div class="box">
             <% for(var i=0; i<newListItem.length; i++){ %>
-                <% if(listTitle===newListItem[i].date && checkIP===newListItem[i].ipAdd){ %>
+                <% if(listTitle===newListItem[i].date){ %>
                     <form action="/delete" method="POST">
                         <div class="item">
                             <!-- whenever the checkbox would be clicked by the user, it will submit the form beacuse 
