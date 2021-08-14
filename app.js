@@ -23,11 +23,8 @@ const itemsSchema = {
 const Item = mongoose.model("Item", itemsSchema);
 
 var ip;
-fetch('http://api.ipify.org/?format=json')
-    .then(results => results.json())
-    .then(data => ip=data.ip);
 
-console.log(ip);
+
 
 
 // Item.insertMany(defaultItems, function(err){
@@ -68,14 +65,17 @@ app.get("/", function(req, res){
         month : "long"
     };
     dateInFormat = today.toLocaleDateString("en-US", options); 
+    fetch('http://api.ipify.org/?format=json')
+    .then(results => results.json())
+    .then(data => ip=data.ip);
 
-
+    console.log(ip, typeof(ip));
     Item.find({}, function(err, foundItems){
         res.render("toDoList", {listTitle : dateInFormat, newListItem:foundItems, checkIP:ip});
     });
 
 
-    console.log(ip, typeof(ip));
+    // console.log(ip, typeof(ip));
     // console.log();
 
     // use to showcase the list.ejs page to the user. a dictionary is send to the list.ejs. So, the elements
