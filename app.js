@@ -22,7 +22,7 @@ const itemsSchema = {
 };
 const Item = mongoose.model("Item", itemsSchema);
 
-var ip;
+// var ip;
 
 
 
@@ -65,13 +65,13 @@ app.get("/", function(req, res){
         month : "long"
     };
     dateInFormat = today.toLocaleDateString("en-US", options); 
-    fetch('http://api.ipify.org/?format=json')
-    .then(results => results.json())
-    .then(data => ip=data.ip);
+//     fetch('http://api.ipify.org/?format=json')
+//     .then(results => results.json())
+//     .then(data => ip=data.ip);
 
     console.log(ip, typeof(ip));
     Item.find({}, function(err, foundItems){
-        res.render("toDoList", {listTitle : dateInFormat, newListItem:foundItems, checkIP:ip});
+        res.render("toDoList", {listTitle : dateInFormat, newListItem:foundItems});
     });
 
 
