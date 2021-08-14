@@ -43,7 +43,7 @@ html {
   input:checked+p {
     text-decoration: line-through;
     text-decoration-color: #A683E3 100px;;
-    text-decoration-thickness: 100% ;
+    text-decoration-thickness: 10% ;
   }
   
   
