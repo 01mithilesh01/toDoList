@@ -17,8 +17,7 @@ mongoose.connect("mongodb+srv://admin-mithilesh:HQhnqIq2mXB4TtN7@cluster0.054ls.
 
 const itemsSchema = { 
     name : String,
-    date : String,
-    ipAdd : String
+    date : String
 };
 const Item = mongoose.model("Item", itemsSchema);
 
@@ -98,8 +97,7 @@ app.post("/", function(req, res){
     {
         const item = new Item({
             name : itemName,
-            date : dateInFormat,
-            ipAdd : ip
+            date : dateInFormat
         });
     item.save();
     }
