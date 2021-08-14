@@ -69,7 +69,7 @@ app.get("/", function(req, res){
 //     .then(results => results.json())
 //     .then(data => ip=data.ip);
 
-    console.log(ip, typeof(ip));
+//     console.log(ip, typeof(ip));
     Item.find({}, function(err, foundItems){
         res.render("toDoList", {listTitle : dateInFormat, newListItem:foundItems});
     });
