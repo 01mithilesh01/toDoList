@@ -21,8 +21,3 @@ MongoDB
 
 Mongoose
 
-# Hosting Platform : Heroku
-
-# Link of the web app : 
-
-https://blooming-bastion-90942.herokuapp.com/
